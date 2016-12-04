@@ -251,5 +251,5 @@ paket-files/
 .idea/
 *.sln.iml
 
-# Ignore commit creator
+# Ignore push tool
 push.sh
