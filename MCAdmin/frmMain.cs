@@ -53,5 +53,10 @@ namespace MCAdmin
             frmAbout about = new frmAbout();
             about.ShowDialog();
         }
+
+        private void btnSendCommand_Click(object sender, EventArgs e)
+        {
+            ServerControl.sendCommand("ban test");
+        }
     }
 }

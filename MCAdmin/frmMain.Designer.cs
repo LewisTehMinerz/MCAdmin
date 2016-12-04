@@ -32,11 +32,13 @@
             this.skin = new jSkin.ctlModernBlack();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnNewServer = new System.Windows.Forms.Button();
+            this.btnSendCommand = new System.Windows.Forms.Button();
             this.skin.SuspendLayout();
             this.SuspendLayout();
             // 
             // skin
             // 
+            this.skin.Controls.Add(this.btnSendCommand);
             this.skin.Controls.Add(this.btnAbout);
             this.skin.Controls.Add(this.btnNewServer);
             this.skin.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -67,6 +69,16 @@
             this.btnNewServer.UseVisualStyleBackColor = true;
             this.btnNewServer.Click += new System.EventHandler(this.btnNewServer_Click);
             // 
+            // btnSendCommand
+            // 
+            this.btnSendCommand.Location = new System.Drawing.Point(644, 350);
+            this.btnSendCommand.Name = "btnSendCommand";
+            this.btnSendCommand.Size = new System.Drawing.Size(75, 23);
+            this.btnSendCommand.TabIndex = 4;
+            this.btnSendCommand.Text = "Send";
+            this.btnSendCommand.UseVisualStyleBackColor = true;
+            this.btnSendCommand.Click += new System.EventHandler(this.btnSendCommand_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,6 +101,7 @@
         private jSkin.ctlModernBlack skin;
         private System.Windows.Forms.Button btnNewServer;
         private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Button btnSendCommand;
     }
 }
 
