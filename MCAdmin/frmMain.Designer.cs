@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.skin = new jSkin.ctlModernBlack();
+            this.btnSendCommand = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnNewServer = new System.Windows.Forms.Button();
-            this.btnSendCommand = new System.Windows.Forms.Button();
             this.skin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,16 @@
             this.skin.Size = new System.Drawing.Size(731, 385);
             this.skin.Stretch = false;
             this.skin.TabIndex = 0;
+            // 
+            // btnSendCommand
+            // 
+            this.btnSendCommand.Location = new System.Drawing.Point(644, 350);
+            this.btnSendCommand.Name = "btnSendCommand";
+            this.btnSendCommand.Size = new System.Drawing.Size(75, 23);
+            this.btnSendCommand.TabIndex = 4;
+            this.btnSendCommand.Text = "Send";
+            this.btnSendCommand.UseVisualStyleBackColor = true;
+            this.btnSendCommand.Click += new System.EventHandler(this.btnSendCommand_Click);
             // 
             // btnAbout
             // 
@@ -69,16 +79,6 @@
             this.btnNewServer.UseVisualStyleBackColor = true;
             this.btnNewServer.Click += new System.EventHandler(this.btnNewServer_Click);
             // 
-            // btnSendCommand
-            // 
-            this.btnSendCommand.Location = new System.Drawing.Point(644, 350);
-            this.btnSendCommand.Name = "btnSendCommand";
-            this.btnSendCommand.Size = new System.Drawing.Size(75, 23);
-            this.btnSendCommand.TabIndex = 4;
-            this.btnSendCommand.Text = "Send";
-            this.btnSendCommand.UseVisualStyleBackColor = true;
-            this.btnSendCommand.Click += new System.EventHandler(this.btnSendCommand_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,6 +90,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MCAdmin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.skin.ResumeLayout(false);
             this.skin.PerformLayout();
             this.ResumeLayout(false);

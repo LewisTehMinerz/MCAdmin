@@ -58,5 +58,13 @@ namespace MCAdmin
         {
             ServerControl.sendCommand("ban test");
         }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ServerControl.socketOpen)
+            {
+                ServerControl.stop();
+            }
+        }
     }
 }
