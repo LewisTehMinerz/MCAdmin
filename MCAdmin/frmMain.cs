@@ -17,12 +17,11 @@ namespace MCAdmin
 {
     public partial class frmMain : Form
     {
-        BackgroundWorker syncWorker = new BackgroundWorker();
+        Thread syncWorker = new Thread(new ThreadStart(SyncWorker.syncWorker_DoWork));
         public frmMain()
         {
             InitializeComponent();
-            syncWorker.DoWork += new DoWorkEventHandler(SyncWorker.syncWorker_DoWork);
-            syncWorker.RunWorkerAsync();
+            syncWorker.Start();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -72,6 +71,7 @@ namespace MCAdmin
             {
                 ServerControl.stop();
             }
+            syncWorker.Abort();
         }
 
         
