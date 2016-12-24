@@ -15,15 +15,16 @@ namespace MCAdmin
         public static bool socketOpen = false;
         private static void writeData(String data)
         {
-            if (!socketOpen)
-            {
-                IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 14579);
-                sock.ReceiveTimeout = 5000;
-                sock.Connect(serverAddress);
-                socketOpen = true;
-            }
             try
             {
+                if (!socketOpen)
+                {
+                    IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 14579);
+                    sock.ReceiveTimeout = 5000;
+                    sock.Connect(serverAddress);
+                    socketOpen = true;
+                }
+            
                 int toSendLen = Encoding.ASCII.GetByteCount(data);
                 byte[] toSendBytes = Encoding.ASCII.GetBytes(data);
                 byte[] toSendLenBytes = BitConverter.GetBytes(toSendLen);

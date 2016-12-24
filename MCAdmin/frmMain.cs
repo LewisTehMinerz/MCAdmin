@@ -5,7 +5,11 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +17,12 @@ namespace MCAdmin
 {
     public partial class frmMain : Form
     {
+        BackgroundWorker syncWorker = new BackgroundWorker();
         public frmMain()
         {
             InitializeComponent();
+            syncWorker.DoWork += new DoWorkEventHandler(SyncWorker.syncWorker_DoWork);
+            syncWorker.RunWorkerAsync();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -34,12 +41,12 @@ namespace MCAdmin
             ServerProc.Start();
             ServerProc.BeginErrorReadLine();
 
-            
+
         }
 
         private void ServerProc_Exited(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnNewServer_Click(object sender, EventArgs e)
@@ -66,5 +73,7 @@ namespace MCAdmin
                 ServerControl.stop();
             }
         }
+
+        
     }
 }
